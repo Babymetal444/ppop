@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>리라쿠마의 릴랙스 마케팅 카페 🍯</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Jua&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        jua: ['Jua', 'sans-serif'],
+                        sans: ['Noto Sans KR', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-[#FAF0E6] dark:bg-[#2C221E] text-[#5C4033] dark:text-[#E6D5C3] min-h-screen flex flex-col transition-colors duration-300">
+
+    <!-- Top Navigation -->
+    <header class="bg-[#FFFBE9] dark:bg-[#3D3028] border-b border-[#E6D5C3] dark:border-[#4E3D33] px-6 py-4 flex items-center justify-between shadow-sm transition-colors duration-300">
+        <div class="flex items-center space-x-3">
+            <div class="w-12 h-12 rounded-full bg-[#E6D5C3] dark:bg-[#4E3D33] flex items-center justify-center overflow-hidden border-2 border-[#D4A373]">
+                <span class="text-xl">🧸</span>
+            </div>
+            <div>
+                <h1 class="font-jua text-xl text-[#6F4E37] dark:text-[#F4E8DC]">리라쿠마의 릴랙스 마케팅 카페 🍯</h1>
+                <p class="text-xs text-[#8C6D53] dark:text-[#C2A892]">소상공인 사장님을 위한 포근한 AI 셀프 마케팅 솔루션</p>
+            </div>
+        </div>
+        <div class="flex items-center space-x-3">
+            <!-- Dark Mode Toggle Button -->
+            <button onclick="toggleDarkMode()" class="p-2 rounded-full bg-[#FAF0E6] dark:bg-[#2C221E] border border-[#E6D5C3] dark:border-[#4E3D33] hover:scale-105 transition text-lg" title="다크모드 전환">
+                <span id="dark-icon">🌙</span>
+            </button>
+            <div class="flex items-center space-x-2 bg-[#FAF0E6] dark:bg-[#2C221E] px-4 py-2 rounded-full border border-[#E6D5C3] dark:border-[#4E3D33]">
+                <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                <span class="text-xs font-medium text-[#6F4E37] dark:text-[#F4E8DC]">AI 바리스타 대기 중 ☕</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="flex-1 max-w-6xl w-full mx-auto p-6 grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <!-- Left Sidebar: Status & Quick Menu -->
+        <div class="space-y-6">
+            <div class="bg-[#FFFBE9] dark:bg-[#3D3028] rounded-2xl p-5 border border-[#E6D5C3] dark:border-[#4E3D33] shadow-sm text-center transition-colors duration-300">
+                <div class="w-24 h-24 mx-auto mb-3 bg-[#FAF0E6] dark:bg-[#2C221E] rounded-full flex items-center justify-center text-4xl border-2 border-dashed border-[#D4A373]">
+                    🐻💤
+                </div>
+                <h2 class="font-jua text-lg text-[#6F4E37] dark:text-[#F4E8DC]">오늘도 힘내신 사장님!</h2>
+                <p class="text-xs text-[#8C6D53] dark:text-[#C2A892] mt-1">"지칠 때는 잠시 쉬어가도 괜찮아요. 마케팅은 리라쿠마가 도울게요."</p>
+            </div>
+
+            <div class="bg-[#FFFBE9] dark:bg-[#3D3028] rounded-2xl p-5 border border-[#E6D5C3] dark:border-[#4E3D33] shadow-sm transition-colors duration-300">
+                <h3 class="font-jua text-sm text-[#6F4E37] dark:text-[#F4E8DC] mb-3">🍯 꿀단지 마케팅 메뉴</h3>
+                <ul class="space-y-2 text-sm">
+                    <li><button onclick="switchTab('gen')" id="btn-gen" class="w-full text-left px-3 py-2 rounded-xl bg-[#FAF0E6] dark:bg-[#2C221E] font-medium text-[#6F4E37] dark:text-[#F4E8DC] transition">📸 AI 숏폼 & 인스타 캡션</button></li>
+                    <li><button onclick="switchTab('reply')" id="btn-reply" class="w-full text-left px-3 py-2 rounded-xl hover:bg-[#FAF0E6] dark:hover:bg-[#2C221E] text-[#8C6D53] dark:text-[#C2A892] transition">💌 단골 손님 릴랙스 답글</button></li>
+                    <li><button onclick="switchTab('hashtag')" id="btn-hashtag" class="w-full text-left px-3 py-2 rounded-xl hover:bg-[#FAF0E6] dark:hover:bg-[#2C221E] text-[#8C6D53] dark:text-[#C2A892] transition">📈 트렌드 해시태그 분석</button></li>
+                    <li><button onclick="switchTab('tips')" id="btn-tips" class="w-full text-left px-3 py-2 rounded-xl hover:bg-[#FAF0E6] dark:hover:bg-[#2C221E] text-[#8C6D53] dark:text-[#C2A892] transition">💡 사장님 마케팅 꿀팁</button></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Right Content Area -->
+        <div class="md:col-span-2 space-y-6">
+            
+            <!-- Tab 1: AI Generator -->
+            <div id="tab-gen" class="tab-content bg-[#FFFBE9] dark:bg-[#3D3028] rounded-2xl p-6 border border-[#E6D5C3] dark:border-[#4E3D33] shadow-sm space-y-4 transition-colors duration-300">
+                <h2 class="font-jua text-xl text-[#6F4E37] dark:text-[#F4E8DC] flex items-center gap-2">
+                    <span>📸</span> AI 숏폼 & 인스타그램 캡션 메이커
+                </h2>
+                <p class="text-xs text-[#8C6D53] dark:text-[#C2A892]">매장 메뉴나 분위기 사진을 올리고 분위기를 선택하면 리라쿠마 감성의 몽글몽글한 문구를 지어드려요.</p>
+                
+                <div class="border-2 border-dashed border-[#E6D5C3] dark:border-[#4E3D33] rounded-xl p-6 text-center bg-[#FAF0E6] dark:bg-[#2C221E] cursor-pointer hover:opacity-80 transition">
+                    <span class="text-2xl">📷</span>
+                    <p class="text-xs text-[#6F4E37] dark:text-[#F4E8DC] mt-2 font-medium">메뉴 사진 또는 매장 사진을 여기에 드래그하거나 클릭해서 올려주세요</p>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-[#6F4E37] dark:text-[#F4E8DC] mb-1">원하는 분위기 선택</label>
+                    <select class="w-full p-2.5 rounded-xl bg-[#FAF0E6] dark:bg-[#2C221E] border border-[#E6D5C3] dark:border-[#4E3D33] text-sm text-[#6F4E37] dark:text-[#F4E8DC] outline-none">
+                        <option>나른하고 포근한 리라쿠마 감성 ☕</option>
+                        <option>달콤하고 기분 좋아지는 디저트 무드 🍯</option>
+                        <option>활기차고 유쾌한 동네 맛집 홍보 🌟</option>
+                    </select>
+                </div>
+
+                <button onclick="generateText()" class="w-full py-3 bg-[#D4A373] hover:bg-[#C29363] text-white font-jua rounded-xl shadow transition">
+                    AI 힐링 마케팅 글 뚝딱 만들기 ✨
+                </button>
+
+                <div id="result-box" class="hidden mt-4 p-4 bg-[#FAF0E6] dark:bg-[#2C221E] rounded-xl border border-[#E6D5C3] dark:border-[#4E3D33] text-xs leading-relaxed text-[#6F4E37] dark:text-[#F4E8DC]">
+                    <p class="font-bold mb-1">✨ 완성된 마케팅 캡션:</p>
+                    <p>"오늘도 바쁘게 달려온 사장님의 공간, 따뜻한 커피 향과 함께 쉬어가세요 🧸☕ 정성스레 준비한 오늘의 메뉴와 함께 포근한 하루 보내시길 바랄게요! #동네카페 #릴랙스마케팅 #힐링공간"</p>
+                </div>
+            </div>
+
+            <!-- Tab 2: Review Reply -->
+            <div id="tab-reply" class="tab-content hidden bg-[#FFFBE9] dark:bg-[#3D3028] rounded-2xl p-6 border border-[#E6D5C3] dark:border-[#4E3D33] shadow-sm space-y-4 transition-colors duration-300">
+                <h2 class="font-jua text-xl text-[#6F4E37] dark:text-[#F4E8DC] flex items-center gap-2">
+                    <span>💌</span> 단골 손님 릴랙스 답글 작성기
+                </h2>
+                <p class="text-xs text-[#8C6D53] dark:text-[#C2A892]">고객 리뷰를 입력하면 리라쿠마처럼 다정하고 진심 어린 사장님 답글을 자동 완성합니다.</p>
+                <textarea class="w-full p-3 rounded-xl bg-[#FAF0E6] dark:bg-[#2C221E] border border-[#E6D5C3] dark:border-[#4E3D33] text-sm text-[#6F4E37] dark:text-[#F4E8DC] outline-none h-24 resize-none" placeholder="고객님의 리뷰 내용을 입력하세요... (예: 커피가 너무 맛있고 분위기가 편안해요!)">커피가 너무 맛있고 분위기가 편안해서 자주 올 것 같아요!</textarea>
+                <button onclick="alert('따뜻한 답글 초안이 복사되었습니다! 💌')" class="w-full py-3 bg-[#D4A373] hover:bg-[#C29363] text-white font-jua rounded-xl shadow transition">
+                    다정한 답글 초안 생성하기 🧸
+                </button>
+            </div>
+
+            <!-- Tab 3: New Feature - Hashtag Analyzer -->
+            <div id="tab-hashtag" class="tab-content hidden bg-[#FFFBE9] dark:bg-[#3D3028] rounded-2xl p-6 border border-[#E6D5C3] dark:border-[#4E3D33] shadow-sm space-y-4 transition-colors duration-300">
+                <h2 class="font-jua text-xl text-[#6F4E37] dark:text-[#F4E8DC] flex items-center gap-2">
+                    <span>📈</span> 실시간 트렌드 해시태그 분석기
+                </h2>
+                <p class="text-xs text-[#8C6D53] dark:text-[#C2A892]">우리 동네 손님들이 가장 많이 검색하는 해시태그 조합을 추천해드려요.</p>
+                
+                <div class="grid grid-cols-2 gap-3">
+                    <button class="p-3 bg-[#FAF0E6] dark:bg-[#2C221E] rounded-xl border border-[#E6D5C3] dark:border-[#4E3D33] text-xs font-bold text-[#6F4E37] dark:text-[#F4E8DC] hover:bg-[#E6D5C3] transition">☕ 감성 카페 & 디저트</button>
+                    <button class="p-3 bg-[#FAF0E6] dark:bg-[#2C221E] rounded-xl border border-[#E6D5C3] dark:border-[#4E3D33] text-xs font-bold text-[#6F4E37] dark:text-[#F4E8DC] hover:bg-[#E6D5C3] transition">🍽️ 동네 맛집 & 식당</button>
+                </div>
+
+                <div class="p-4 bg-[#FAF0E6] dark:bg-[#2C221E] rounded-xl border border-[#E6D5C3] dark:border-[#4E3D33] space-y-2">
+                    <p class="text-xs font-bold text-[#6F4E37] dark:text-[#F4E8DC]">🔥 추천 태그 세트 (클릭해서 복사)</p>
+                    <div class="flex flex-wrap gap-2 text-xs">
+                        <span class="px-2.5 py-1 bg-[#FFFBE9] dark:bg-[#3D3028] rounded-lg border border-[#E6D5C3] dark:border-[#4E3D33] text-[#6F4E37] dark:text-[#F4E8DC]">#부산카페</span>
+                        <span class="px-2.5 py-1 bg-[#FFFBE9] dark:bg-[#3D3028] rounded-lg border border-[#E6D5C3] dark:border-[#4E3D33] text-[#6F4E37] dark:text-[#F4E8DC]">#전포동카페투어</span>
+                        <span class="px-2.5 py-1 bg-[#FFFBE9] dark:bg-[#3D3028] rounded-lg border border-[#E6D5C3] dark:border-[#4E3D33] text-[#6F4E37] dark:text-[#F4E8DC]">#디저트맛집</span>
+                        <span class="px-2.5 py-1 bg-[#FFFBE9] dark:bg-[#3D3028] rounded-lg border border-[#E6D5C3] dark:border-[#4E3D33] text-[#6F4E37] dark:text-[#F4E8DC]">#신상카페</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab 4: Tips -->
+            <div id="tab-tips" class="tab-content hidden bg-[#FFFBE9] dark:bg-[#3D3028] rounded-2xl p-6 border border-[#E6D5C3] dark:border-[#4E3D33] shadow-sm space-y-4 transition-colors duration-300">
+                <h2 class="font-jua text-xl text-[#6F4E37] dark:text-[#F4E8DC] flex items-center gap-2">
+                    <span>💡</span> 소상공인 마케팅 꿀템 아카이브
+                </h2>
+                <div class="space-y-3">
+                    <div class="p-3 bg-[#FAF0E6] dark:bg-[#2C221E] rounded-xl border border-[#E6D5C3] dark:border-[#4E3D33]">
+                        <h4 class="font-bold text-xs text-[#6F4E37] dark:text-[#F4E8DC]">🍯 지역 해시태그는 동네 이름 + 업종 조합으로!</h4>
+                        <p class="text-xs text-[#8C6D53] dark:text-[#C2A892] mt-1">#전포동카페 처럼 구체적인 동 단위를 타겟팅해야 단골 전환율이 높아집니다.</p>
+                    </div>
+                    <div class="p-3 bg-[#FAF0E6] dark:bg-[#2C221E] rounded-xl border border-[#E6D5C3] dark:border-[#4E3D33]">
+                        <h4 class="font-bold text-xs text-[#6F4E37] dark:text-[#F4E8DC]">🧸 몽글몽글한 비주얼 톤앤매너 유지하기</h4>
+                        <p class="text-xs text-[#8C6D53] dark:text-[#C2A892] mt-1">따뜻한 색감의 필터를 일관되게 사용하면 피드 전체가 브랜드의 시그니처가 됩니다.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <script>
+        function switchTab(tabId) {
+            const tabs = ['gen', 'reply', 'hashtag', 'tips'];
+            tabs.forEach(t => {
+                document.getElementById('tab-' + t).classList.add('hidden');
+                document.getElementById('btn-' + t).classList.remove('bg-[#FAF0E6]', 'dark:bg-[#2C221E]', 'font-medium');
+                document.getElementById('btn-' + t).classList.add('hover:bg-[#FAF0E6]', 'dark:hover:bg-[#2C221E]', 'text-[#8C6D53]', 'dark:text-[#C2A892]');
+            });
+            document.getElementById('tab-' + tabId).classList.remove('hidden');
+            const activeBtn = document.getElementById('btn-' + tabId);
+            activeBtn.classList.add('bg-[#FAF0E6]', 'dark:bg-[#2C221E]', 'font-medium', 'text-[#6F4E37]', 'dark:text-[#F4E8DC]');
+            activeBtn.classList.remove('text-[#8C6D53]', 'dark:text-[#C2A892]');
+        }
+
+        function generateText() {
+            document.getElementById('result-box').classList.remove('hidden');
+        }
+
+        function toggleDarkMode() {
+            const html = document.documentElement;
+            const icon = document.getElementById('dark-icon');
+            if (html.classList.contains('dark')) {
+                html.classList.remove('dark');
+                icon.textContent = '🌙';
+            } else {
+                html.classList.add('dark');
+                icon.textContent = '☀️';
+            }
+        }
+    </script>
+</body>
+</html>
