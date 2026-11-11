@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>리라쿠마의 릴랙스 마케팅 카페 🍯</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Jua&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        jua: ['Jua', 'sans-serif'],
+                        sans: ['Noto Sans KR', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-[#FAF0E6] dark:bg-[#2C221E] text-[#5C4033] dark:text-[#E6D5C3] min-h-screen flex flex-col transition-colors duration-300">
+
+    <!-- Top Navigation -->
+    <header class="bg-[#FFFBE9] dark:bg-[#3D3028] border-b border-[#E6D5C3] dark:border-[#4E3D33] px-6 py-4 flex items-center justify-between shadow-sm transition-colors duration-300">
+        <div class="flex items-center space-x-3">
+            <div class="w-12 h-12 rounded-full bg-[#E6D5C3] dark:bg-[#4E3D33] flex items-center justify-center overflow-hidden border-2 border-[#D4A373]">
+                <span class="text-xl">🧸</span>
+            </div>
+            <div>
+                <h1 class="font-jua text-xl text-[#6F4E37] dark:text-[#F4E8DC]">리라쿠마의 릴랙스 마케팅 카페 🍯</h1>
+                <p class="text-xs text-[#8C6D53] dark:text-[#C2A892]">소상공인 사장님을 위한 포근한 AI 셀프 마케팅 솔루션</p>
+            </div>
+        </div>
+        <div class="flex items-center space-x-3">
+            <!-- Dark Mode Toggle Button -->
+            <button onclick="toggleDarkMode()" class="p-2 rounded-full bg-[#FAF0E6] dark:bg-[#2C221E] border border-[#E6D5C3] dark:border-[#4E3D33] hover:scale-105 transition text-lg" title="다크모드 전환">
+                <span id="dark-icon">🌙</span>
+            </button>
+            <div class="flex items-center space-x-2 bg-[#FAF0E6] dark:bg-[#2C221E] px-4 py-2 rounded-full border border-[#E6D5C3] dark:border-[#4E3D33]">
+                <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                <span class="text-xs font-medium text-[#6F4E37] dark:text-[#F4E8DC]">AI 바리스타 대기 중 ☕</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="flex-1 max-w-6xl w-full mx-auto p-6 grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <!-- Left Sidebar: Status
